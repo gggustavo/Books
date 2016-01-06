@@ -1,0 +1,38 @@
+﻿@model Books.Models.Book
+
+<h2>Edit</h2>
+<div>
+    <form asp-controller="Book" asp-action="Update" method="post" asp-route-id="@Model.BookID">
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <select asp-for="AuthorID" asp-items="@ViewBag.Items" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Year"></label>
+            <input asp-for="Year" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Genre"></label>
+            <input asp-for="Genre" class="form-control" />
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success btn-sm"><span><i class="fa fa-check-circle-o"></i> Save</span></button>
+        <a class="btn btn-danger btn-sm" asp-action="Index"><i class="fa fa-ban"></i> Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
